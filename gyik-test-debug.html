@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYIK Debug Test</title>
+    <link rel="stylesheet" href="assets/css/gyik-widget.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .debug-info {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007cba;
+        }
+    </style>
+</head>
+<body>
+    <h1>GYIK Debug Test</h1>
+    
+    <div class="debug-info">
+        <h3>Debug Információk:</h3>
+        <p>Kattints a kérdésekre és nézd meg a konzolt a debug információkhoz.</p>
+    </div>
+
+    <div class="gyik-wrapper">
+        <div class="gyik-container">
+            <div class="gyik-item" data-index="0">
+                <div class="gyik-question-wrapper">
+                    <div class="gyik-question" data-target="0">
+                        <span class="gyik-toggle">+</span>
+                        <span class="gyik-question-text">Első kérdés?</span>
+                    </div>
+                </div>
+                <div class="gyik-answer" data-index="0">
+                    <div class="gyik-answer-content">
+                        <p>Első válasz tartalma.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gyik-item" data-index="1">
+                <div class="gyik-question-wrapper">
+                    <div class="gyik-question" data-target="1">
+                        <span class="gyik-toggle">+</span>
+                        <span class="gyik-question-text">Második kérdés?</span>
+                    </div>
+                </div>
+                <div class="gyik-answer" data-index="1">
+                    <div class="gyik-answer-content">
+                        <p>Második válasz tartalma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gyik-wrapper">
+        <div class="gyik-container">
+            <div class="gyik-item" data-index="0">
+                <div class="gyik-question-wrapper">
+                    <div class="gyik-question" data-target="0">
+                        <span class="gyik-toggle">+</span>
+                        <span class="gyik-question-text">Második widget - Első kérdés?</span>
+                    </div>
+                </div>
+                <div class="gyik-answer" data-index="0">
+                    <div class="gyik-answer-content">
+                        <p>Második widget - Első válasz tartalma.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gyik-item" data-index="1">
+                <div class="gyik-question-wrapper">
+                    <div class="gyik-question" data-target="1">
+                        <span class="gyik-toggle">+</span>
+                        <span class="gyik-question-text">Második widget - Második kérdés?</span>
+                    </div>
+                </div>
+                <div class="gyik-answer" data-index="1">
+                    <div class="gyik-answer-content">
+                        <p>Második widget - Második válasz tartalma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/gyik-widget.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log('=== GYIK Widget Debug Test ===');
+            
+            // Várjunk egy kicsit, hogy a widget inicializálódjon
+            setTimeout(function() {
+                console.log('=== Testing GYIK Widget ===');
+                
+                // Debug: Nézzük meg a widget példányokat
+                $('.gyik-wrapper').each(function(index) {
+                    const widget = $(this).data('gyik-widget');
+                    console.log(`Widget ${index}:`, widget);
+                });
+                
+                // Teszteljük a manuális kattintást
+                console.log('=== Manual Click Test ===');
+                console.log('Click on first question of first widget...');
+                
+                // Kattintás az első widget első kérdésére
+                $('.gyik-wrapper:first .gyik-question[data-target="0"]').trigger('click');
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
