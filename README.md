@@ -22,13 +22,13 @@ Ez a plugin két testreszabható Elementor widgetet tartalmaz:
 ## Telepítés
 
 ### 1. Fájlok feltöltése
-1. Töltsd fel a plugin fájljait a WordPress `wp-content/plugins/gyik-elementor-widget/` mappába
+1. Töltsd fel a plugin fájljait a WordPress `wp-content/plugins/zeusweb-widgets/` mappába
 2. Vagy csomagold be a fájlokat ZIP formátumban és telepítsd a WordPress admin panelen keresztül
 
 ### 2. Plugin aktiválása
 1. Menj a WordPress admin panelbe
 2. Navigálj a **Beépülő modulok** > **Telepített beépülő modulok** menüpontra
-3. Keresd meg a "GYIK Elementor Widget" beépülő modult
+3. Keresd meg a "ZeusWeb Widgets" beépülő modult
 4. Kattints az **Aktiválás** gombra
 
 ### 3. Elementor ellenőrzése
@@ -39,10 +39,10 @@ Ez a plugin két testreszabható Elementor widgetet tartalmaz:
 
 ### 1. Widget hozzáadása
 1. Nyisd meg az Elementor szerkesztőt
-2. Keresd meg a "GYIK Widget" elemet a widgetek között
-3. Húzd a widgetet a szerkesztőbe
+2. Keresd meg a "ZeusWeb" kategóriát a widgetek között
+3. Húzd a kívánt widgetet a szerkesztőbe
 
-### 2. Tartalom beállítása
+### 2. GYIK Widget beállítása
 1. A **Tartalom** fülön adj hozzá kérdéseket és válaszokat
 2. Minden kérdéshez beállíthatod:
    - **Kérdés szövege**: A megjelenő kérdés
@@ -51,17 +51,16 @@ Ez a plugin két testreszabható Elementor widgetet tartalmaz:
    - **Gomb szövege**: A gomb szövege
    - **Gomb link**: A gomb célhelye
 
-### 3. Stílus testreszabása
-1. A **Stílus** fülön testreszabhatod:
-   - **Konténer**: Keret, háttér, térközök
-   - **Kérdés**: Betűtípus, színek, háttér
-   - **Válasz**: Betűtípus, színek, háttér
-   - **Gomb**: Normál és hover állapotok
+### 3. Slider Widget beállítása
+1. A **Tartalom** fülön adj hozzá képeket
+2. Beállíthatod:
+   - **Automatikus lejátszás**: Kapcsoló az automatikus lejátszáshoz
+   - **Lejátszási sebesség**: Másodpercekben
+   - **Navigáció megjelenítése**: Nyilak és pontok
 
 ## JavaScript API
 
-A widget JavaScript API-t biztosít a programozott kezeléshez:
-
+### GYIK Widget API
 ```javascript
 // Összes válasz bezárása
 GYIKWidget.closeAll();
@@ -75,8 +74,7 @@ GYIKWidget.openAnswer(widgetIndex, answerIndex);
 
 ## CSS osztályok
 
-A widget a következő CSS osztályokat használja:
-
+### GYIK Widget
 - `.gyik-wrapper`: Fő konténer
 - `.gyik-container`: Belső konténer
 - `.gyik-item`: Egyes kérdés-válasz elemek
@@ -87,6 +85,12 @@ A widget a következő CSS osztályokat használja:
 - `.gyik-button`: Gomb elem
 - `.gyik-answer`: Válasz konténer
 - `.gyik-answer-content`: Válasz tartalom
+
+### Slider Widget
+- `.zeusweb-slider`: Fő konténer
+- `.slider-container`: Slider konténer
+- `.slider-item`: Egyes slide elemek
+- `.slider-nav`: Navigációs elemek
 
 ## Reszponzív breakpointok
 
@@ -102,8 +106,8 @@ A widget a következő CSS osztályokat használja:
 
 ## Nyomtatási stílusok
 
-A widget automatikusan optimalizált nyomtatási stílusokat tartalmaz:
-- Minden válasz megjelenik
+A widgetek automatikusan optimalizált nyomtatási stílusokat tartalmaznak:
+- Minden válasz megjelenik (GYIK)
 - Gombok és toggle ikonok elrejtve
 - Egyszerűsített elrendezés
 
