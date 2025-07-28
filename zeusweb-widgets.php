@@ -16,6 +16,16 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Plugin Update Checker
+require_once __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5p6\Plugin\UpdateChecker;
+
+$myUpdateChecker = UpdateChecker::buildUpdateChecker(
+    'https://github.com/whaitey/zeusweb-widgets',
+    __FILE__,
+    'zeusweb-widgets'
+);
+
 // Register the "ZeusWeb" category for Elementor widgets
 add_action('elementor/init', function() {
     \Elementor\Plugin::instance()->elements_manager->add_category(
