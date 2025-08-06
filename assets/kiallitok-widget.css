@@ -1,11 +1,13 @@
 /* Kiállítók Widget Styles */
 .kiallitok-wrapper {
     width: 100%;
+    display: block;
 }
 
 .kiallitok-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: block;
 }
 
 .kiallitok-grid {
@@ -53,6 +55,7 @@
     text-align: center;
     min-width: 200px;
     max-width: 200px;
+    display: block;
 }
 
 .kiallitok-image img {
@@ -142,27 +145,25 @@
     }
 }
 
-/* Grid column overrides for responsive controls */
-.kiallitok-grid[style*="grid-template-columns: repeat(1, 1fr)"] {
-    grid-template-columns: repeat(1, 1fr) !important;
+/* Force layout overrides to ensure proper display */
+.kiallitok-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
 }
 
-.kiallitok-grid[style*="grid-template-columns: repeat(2, 1fr)"] {
-    grid-template-columns: repeat(2, 1fr) !important;
+.kiallitok-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    width: 100% !important;
 }
 
-.kiallitok-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
-    grid-template-columns: repeat(3, 1fr) !important;
-}
-
-.kiallitok-grid[style*="grid-template-columns: repeat(4, 1fr)"] {
-    grid-template-columns: repeat(4, 1fr) !important;
-}
-
-.kiallitok-grid[style*="grid-template-columns: repeat(5, 1fr)"] {
-    grid-template-columns: repeat(5, 1fr) !important;
-}
-
-.kiallitok-grid[style*="grid-template-columns: repeat(6, 1fr)"] {
-    grid-template-columns: repeat(6, 1fr) !important;
+.kiallitok-image img {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
 } 
