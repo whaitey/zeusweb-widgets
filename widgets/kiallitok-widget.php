@@ -454,25 +454,28 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
         $this->add_render_attribute('wrapper', 'class', 'kiallitok-wrapper');
         $this->add_render_attribute('grid', 'class', 'kiallitok-grid');
         $this->add_render_attribute('grid', 'class', 'kiallitok-image-' . $settings['image_position']);
+        $this->add_render_attribute('grid', 'style', 'display: flex !important; flex-direction: column !important; gap: 30px !important; width: 100% !important;');
         ?>
         
         <div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
             <div class="kiallitok-container">
                 <div <?php echo $this->get_render_attribute_string('grid'); ?>>
                     <?php foreach ($settings['exhibitors'] as $index => $item) : ?>
-                        <div class="kiallitok-item">
+                        <div class="kiallitok-item" style="display: flex !important; flex-direction: row !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; background: #ffffff !important; border-radius: 8px !important; padding: 20px !important; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; margin-bottom: 0 !important;">
                             <?php if (!empty($item['image']['url'])) : ?>
-                                <div class="kiallitok-image">
+                                <div class="kiallitok-image" style="flex-shrink: 0 !important; text-align: center !important; min-width: 200px !important; max-width: 200px !important; width: 200px !important;">
                                     <?php if (!empty($item['link']['url'])) : ?>
                                         <a href="<?php echo esc_url($item['link']['url']); ?>"
                                            <?php echo $item['link']['is_external'] ? 'target="_blank"' : ''; ?>
                                            <?php echo $item['link']['nofollow'] ? 'rel="nofollow"' : ''; ?>>
                                             <img src="<?php echo esc_url($item['image']['url']); ?>" 
-                                                 alt="<?php echo esc_attr($item['title']); ?>">
+                                                 alt="<?php echo esc_attr($item['title']); ?>"
+                                                 style="width: 200px !important; height: 200px !important; object-fit: cover !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
                                         </a>
                                     <?php else : ?>
                                         <img src="<?php echo esc_url($item['image']['url']); ?>" 
-                                             alt="<?php echo esc_attr($item['title']); ?>">
+                                             alt="<?php echo esc_attr($item['title']); ?>"
+                                             style="width: 200px !important; height: 200px !important; object-fit: cover !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>
@@ -516,7 +519,7 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                         <# _.each(settings.exhibitors, function(item, index) { #>
                             <div class="kiallitok-item">
                                 <# if (item.image.url) { #>
-                                    <div class="kiallitok-image">
+                                    <div class="kiallitok-image" style="flex-shrink: 0 !important; text-align: center !important; min-width: 200px !important; max-width: 200px !important; width: 200px !important;">
                                         <# if (item.link.url) { #>
                                             <a href="{{ item.link.url }}"
                                                <# if (item.link.is_external) { #>target="_blank"<# } #>
