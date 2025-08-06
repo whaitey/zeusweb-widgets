@@ -203,6 +203,7 @@
 /* Pagination Styles */
 .kiallitok-pagination {
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 20px !important;
@@ -220,20 +221,31 @@
     width: 12px !important;
     height: 12px !important;
     border-radius: 50% !important;
-    background: #ccc !important;
+    background: #ffffff !important;
+    border: 2px solid #ccc !important;
     cursor: pointer !important;
-    transition: background 0.3s ease !important;
-    border: none !important;
+    transition: all 0.3s ease !important;
     padding: 0 !important;
 }
 
 .kiallitok-pagination-dot.active {
     background: #00CB98 !important;
+    border-color: #00CB98 !important;
+    width: 16px !important;
+    height: 16px !important;
+    transform: scale(1.2) !important;
 }
 
 .kiallitok-pagination-dot:hover {
     background: #00CB98 !important;
+    border-color: #00CB98 !important;
     opacity: 0.8;
+}
+
+.kiallitok-pagination-arrows {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
 }
 
 .kiallitok-pagination-arrow {

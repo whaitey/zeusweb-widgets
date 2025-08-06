@@ -722,29 +722,31 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                 
                 <?php if ($total_pages > 1) : ?>
                     <div class="kiallitok-pagination">
-                        <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-left" data-direction="prev" disabled>
-                            <div class="kiallitok-pagination-arrow-img">
-                                <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                                    <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                        </button>
-                        
                         <div class="kiallitok-pagination-dots">
                             <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
                                 <button class="kiallitok-pagination-dot <?php echo $i === 1 ? 'active' : ''; ?>" data-page="<?php echo esc_attr($i); ?>"></button>
                             <?php endfor; ?>
                         </div>
                         
-                        <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-right" data-direction="next" <?php echo $total_pages <= 1 ? 'disabled' : ''; ?>>
-                            <div class="kiallitok-pagination-arrow-img">
-                                <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                                    <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                        </button>
+                        <div class="kiallitok-pagination-arrows">
+                            <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-left" data-direction="prev" disabled>
+                                <div class="kiallitok-pagination-arrow-img">
+                                    <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            
+                            <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-right" data-direction="next" <?php echo $total_pages <= 1 ? 'disabled' : ''; ?>>
+                                <div class="kiallitok-pagination-arrow-img">
+                                    <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 <?php endif; ?>
             </div>
