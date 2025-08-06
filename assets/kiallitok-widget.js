@@ -1,4 +1,9 @@
 jQuery(document).ready(function($) {
+    // Only run on frontend, not in Elementor editor
+    if (typeof elementorFrontend !== 'undefined' && elementorFrontend.isEditMode()) {
+        return;
+    }
+    
     // Kiállítók Widget Pagination
     $('.kiallitok-wrapper').each(function() {
         const $wrapper = $(this);

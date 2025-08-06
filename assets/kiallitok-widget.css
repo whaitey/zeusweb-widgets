@@ -166,9 +166,9 @@
     width: 100% !important;
 }
 
-/* Base item styles - will be overridden by pagination */
+/* Base item styles - show by default, pagination will hide/show as needed */
 .kiallitok-item {
-    display: none !important;
+    display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
     gap: 20px !important;
@@ -285,12 +285,12 @@
     /* No rotation needed */
 }
 
-/* Pagination visibility - only hide/show, don't change layout */
-.kiallitok-item {
+/* Pagination visibility - only apply on frontend, not in editor */
+.elementor-frontend .kiallitok-item {
     display: none !important;
 }
 
-.kiallitok-item.active {
+.elementor-frontend .kiallitok-item.active {
     display: flex !important;
 }
 
