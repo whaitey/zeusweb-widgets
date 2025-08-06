@@ -135,6 +135,18 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             ]
         );
         
+        $this->add_control(
+            'items_per_page',
+            [
+                'label' => esc_html__('Elemek oldalanként', 'zeusweb'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 10,
+                'min' => 1,
+                'max' => 50,
+                'step' => 1,
+            ]
+        );
+        
         $this->end_controls_section();
         
         // Style Section: Container
@@ -451,6 +463,10 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             return;
         }
         
+        $items_per_page = $settings['items_per_page'] ?: 10;
+        $total_items = count($settings['exhibitors']);
+        $total_pages = ceil($total_items / $items_per_page);
+        
         $this->add_render_attribute('wrapper', 'class', 'kiallitok-wrapper');
         $this->add_render_attribute('grid', 'class', 'kiallitok-grid');
         $this->add_render_attribute('grid', 'class', 'kiallitok-image-' . $settings['image_position']);
@@ -461,7 +477,14 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             <div class="kiallitok-container">
                 <div <?php echo $this->get_render_attribute_string('grid'); ?>>
                     <?php foreach ($settings['exhibitors'] as $index => $item) : ?>
-                        <div class="kiallitok-item" style="display: flex !important; flex-direction: row !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; background: #ffffff !important; border-radius: 8px !important; padding: 20px !important; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; margin-bottom: 0 !important;">
+                        <?php 
+                        $page_number = floor($index / $items_per_page) + 1;
+                        $item_class = 'kiallitok-item';
+                        if ($page_number === 1) {
+                            $item_class .= ' active';
+                        }
+                        ?>
+                        <div class="<?php echo esc_attr($item_class); ?>" data-page="<?php echo esc_attr($page_number); ?>" style="display: <?php echo $page_number === 1 ? 'flex' : 'none'; ?> !important; flex-direction: row !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; background: none !important; border-radius: 0 !important; padding: 20px !important; box-shadow: none !important; margin-bottom: 0 !important;">
                             <?php if (!empty($item['image']['url'])) : ?>
                                 <div class="kiallitok-image" style="flex-shrink: 0 !important; text-align: center !important; min-width: 200px !important; max-width: 200px !important; width: 200px !important;">
                                     <?php if (!empty($item['link']['url'])) : ?>
@@ -504,6 +527,34 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                         </div>
                     <?php endforeach; ?>
                 </div>
+                
+                <?php if ($total_pages > 1) : ?>
+                    <div class="kiallitok-pagination">
+                        <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-left" data-direction="prev" disabled>
+                            <div class="kiallitok-pagination-arrow-img">
+                                <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                    <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                        
+                        <div class="kiallitok-pagination-dots">
+                            <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                <button class="kiallitok-pagination-dot <?php echo $i === 1 ? 'active' : ''; ?>" data-page="<?php echo esc_attr($i); ?>"></button>
+                            <?php endfor; ?>
+                        </div>
+                        
+                        <button class="kiallitok-pagination-arrow kiallitok-pagination-arrow-right" data-direction="next" <?php echo $total_pages <= 1 ? 'disabled' : ''; ?>>
+                            <div class="kiallitok-pagination-arrow-img">
+                                <svg width="23" height="36" viewBox="0 0 23 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4.87988L19.0437 17.6208" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                    <path d="M4 31L19.0437 18.2591" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
         

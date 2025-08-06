@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.2.7
+ * Version: 1.3.0
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
@@ -73,8 +73,9 @@ function zeusweb_enqueue_gyik_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'zeusweb_enqueue_gyik_assets' );
 
-// Enqueue assets (CSS) for Kiállítók widget
+// Enqueue assets (CSS/JS) for Kiállítók widget
 function zeusweb_enqueue_kiallitok_assets() {
     wp_enqueue_style( 'zeusweb-kiallitok-style', plugins_url( 'assets/kiallitok-widget.css', __FILE__ ) );
+    wp_enqueue_script( 'zeusweb-kiallitok-script', plugins_url( 'assets/kiallitok-widget.js', __FILE__ ), array('jquery'), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'zeusweb_enqueue_kiallitok_assets' );

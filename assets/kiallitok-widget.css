@@ -23,10 +23,10 @@
 }
 
 .kiallitok-item {
-    background: #ffffff !important;
-    border-radius: 8px !important;
+    background: none !important;
+    border-radius: 0 !important;
     padding: 20px !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: none !important;
     transition: all 0.3s ease !important;
     display: flex !important;
     flex-direction: row !important;
@@ -39,8 +39,8 @@
 }
 
 .kiallitok-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Image positioning styles - now default is left */
@@ -196,4 +196,98 @@
     display: flex !important;
     flex-direction: row !important;
     width: 100% !important;
+}
+
+/* Pagination Styles */
+.kiallitok-pagination {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-top: 40px !important;
+    width: 100% !important;
+}
+
+.kiallitok-pagination-dots {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+.kiallitok-pagination-dot {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: #ccc !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.kiallitok-pagination-dot.active {
+    background: #00CB98 !important;
+}
+
+.kiallitok-pagination-dot:hover {
+    background: #00CB98 !important;
+    opacity: 0.8;
+}
+
+.kiallitok-pagination-arrow {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    border: none !important;
+    background: #00CB98 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-size: 0 !important;
+    text-align: center !important;
+    padding: 0 !important;
+    font-weight: bold !important;
+    user-select: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s !important;
+}
+
+.kiallitok-pagination-arrow:disabled {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+    color: #666 !important;
+}
+
+.kiallitok-pagination-arrow:hover:not(:disabled) {
+    background: #00CB98 !important;
+    opacity: 0.8;
+}
+
+.kiallitok-pagination-arrow-img {
+    width: 11px !important;
+    height: 11px !important;
+    display: block !important;
+}
+
+.kiallitok-pagination-arrow-left .kiallitok-pagination-arrow-img {
+    transform: rotate(180deg) !important;
+}
+
+.kiallitok-pagination-arrow-right .kiallitok-pagination-arrow-img {
+    /* No rotation needed */
+}
+
+/* Hide items that are not on current page */
+.kiallitok-item {
+    display: none !important;
+}
+
+.kiallitok-item.active {
+    display: flex !important;
 } 
