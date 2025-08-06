@@ -10,6 +10,15 @@ jQuery(document).ready(function($) {
         let currentPage = 1;
         const totalPages = $dots.length;
         
+        // If no pagination, show all items
+        if (totalPages === 0) {
+            $items.show();
+            return;
+        }
+        
+        // Add pagination-active class to enable pagination CSS
+        $wrapper.addClass('pagination-active');
+        
         // Function to show page
         function showPage(pageNumber) {
             // Hide all items

@@ -285,12 +285,17 @@
     /* No rotation needed */
 }
 
-/* Pagination visibility - only apply on frontend, not in editor */
-.elementor-frontend .kiallitok-item {
+/* Show all items by default, pagination will override if needed */
+.kiallitok-item {
+    display: flex !important;
+}
+
+/* Only hide items when pagination is explicitly active */
+.kiallitok-wrapper.pagination-active .kiallitok-item {
     display: none !important;
 }
 
-.elementor-frontend .kiallitok-item.active {
+.kiallitok-wrapper.pagination-active .kiallitok-item.active {
     display: flex !important;
 }
 
