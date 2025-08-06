@@ -22,7 +22,7 @@ class GYIK_Widget extends \Elementor\Widget_Base {
     }
     
     public function get_categories() {
-        return ['general'];
+        return ['zeusweb'];
     }
     
     public function get_keywords() {

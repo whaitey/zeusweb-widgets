@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.0.0
+ * Version: 1.2.0
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
@@ -52,6 +52,13 @@ function zeusweb_register_gyik_widget( $widgets_manager ) {
 }
 add_action( 'elementor/widgets/register', 'zeusweb_register_gyik_widget' );
 
+// Register the custom Kiállítók widget
+function zeusweb_register_kiallitok_widget( $widgets_manager ) {
+    require_once( __DIR__ . '/widgets/kiallitok-widget.php' );
+    $widgets_manager->register( new \Kiallitok_Widget() );
+}
+add_action( 'elementor/widgets/register', 'zeusweb_register_kiallitok_widget' );
+
 // Enqueue assets (CSS/JS) for slider
 function zeusweb_enqueue_slider_assets() {
     wp_enqueue_style( 'zeusweb-slider-style', plugins_url( 'assets/slider.css', __FILE__ ) );
@@ -65,3 +72,9 @@ function zeusweb_enqueue_gyik_assets() {
     wp_enqueue_script( 'zeusweb-gyik-script', plugins_url( 'assets/gyik-widget.js', __FILE__ ), array('jquery'), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'zeusweb_enqueue_gyik_assets' );
+
+// Enqueue assets (CSS) for Kiállítók widget
+function zeusweb_enqueue_kiallitok_assets() {
+    wp_enqueue_style( 'zeusweb-kiallitok-style', plugins_url( 'assets/kiallitok-widget.css', __FILE__ ) );
+}
+add_action( 'wp_enqueue_scripts', 'zeusweb_enqueue_kiallitok_assets' );
