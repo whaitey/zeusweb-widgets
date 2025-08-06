@@ -97,11 +97,203 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                 'default' => [
                     [
                         'title' => esc_html__('Első Kiállító', 'zeusweb'),
-                        'text' => esc_html__('Az első kiállító leírása.', 'zeusweb'),
+                        'text' => esc_html__('Az első kiállító leírása. Ez egy részletes leírás az első kiállítóról és szolgáltatásairól.', 'zeusweb'),
                     ],
                     [
                         'title' => esc_html__('Második Kiállító', 'zeusweb'),
-                        'text' => esc_html__('A második kiállító leírása.', 'zeusweb'),
+                        'text' => esc_html__('A második kiállító leírása. Kiváló minőségű termékek és szolgáltatások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmadik kiállító leírása. Innovatív megoldások és modern technológiák.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyedik kiállító leírása. Megbízható partner és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Ötödik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('Az ötödik kiállító leírása. Kreatív megoldások és egyedi megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Hatodik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A hatodik kiállító leírása. Professzionális szolgáltatások és minőségi garancia.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Hetedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A hetedik kiállító leírása. Szakértői tudás és tapasztalat.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Nyolcadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A nyolcadik kiállító leírása. Innovatív technológiák és megoldások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Kilencedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A kilencedik kiállító leírása. Megbízható partner és hosszú távú együttműködés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizedik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenegyedik kiállító leírása. Professzionális megközelítés és szakértői tudás.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenkettedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenkettedik kiállító leírása. Innovatív megoldások és kreatív megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenharmadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenharmadik kiállító leírása. Megbízható szolgáltatások és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizennegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizennegyedik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenötödik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenötödik kiállító leírása. Professzionális megközelítés és szakértői tudás.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenhatodik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenhatodik kiállító leírása. Innovatív technológiák és modern megoldások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenhetedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenhetedik kiállító leírása. Megbízható partner és hosszú távú együttműködés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizennyolcadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizennyolcadik kiállító leírása. Kreatív megoldások és egyedi megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Tizenkilencedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A tizenkilencedik kiállító leírása. Szakértői tudás és tapasztalat.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszadik kiállító leírása. Professzionális szolgáltatások és minőségi garancia.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonegyedik kiállító leírása. Innovatív megoldások és modern technológiák.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonkettedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonkettedik kiállító leírása. Megbízható partner és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonharmadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonharmadik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonnegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonnegyedik kiállító leírása. Professzionális megközelítés és szakértői tudás.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonötödik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonötödik kiállító leírása. Innovatív technológiák és kreatív megoldások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonhatodik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonhatodik kiállító leírása. Megbízható szolgáltatások és hosszú távú együttműködés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonhetedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonhetedik kiállító leírása. Kreatív megoldások és egyedi megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonnyolcadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonnyolcadik kiállító leírása. Szakértői tudás és tapasztalat.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Huszonkilencedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A huszonkilencedik kiállító leírása. Professzionális szolgáltatások és minőségi garancia.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincadik kiállító leírása. Innovatív megoldások és modern technológiák.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincegyedik kiállító leírása. Megbízható partner és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harminckettedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harminckettedik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincharmadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincharmadik kiállító leírása. Professzionális megközelítés és szakértői tudás.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincnegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincnegyedik kiállító leírása. Innovatív technológiák és kreatív megoldások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincötödik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincötödik kiállító leírása. Megbízható szolgáltatások és hosszú távú együttműködés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harminchatodik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harminchatodik kiállító leírása. Kreatív megoldások és egyedi megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harminchetedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harminchetedik kiállító leírása. Szakértői tudás és tapasztalat.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harmincnyolcadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harmincnyolcadik kiállító leírása. Professzionális szolgáltatások és minőségi garancia.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Harminckilencedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A harminckilencedik kiállító leírása. Innovatív megoldások és modern technológiák.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenedik kiállító leírása. Megbízható partner és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenegyedik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenkettedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenkettedik kiállító leírása. Professzionális megközelítés és szakértői tudás.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenharmadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenharmadik kiállító leírása. Innovatív technológiák és kreatív megoldások.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvennegyedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvennegyedik kiállító leírása. Megbízható szolgáltatások és hosszú távú együttműködés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenötödik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenötödik kiállító leírása. Kreatív megoldások és egyedi megközelítés.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenhatodik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenhatodik kiállító leírása. Szakértői tudás és tapasztalat.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenhetedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenhetedik kiállító leírása. Professzionális szolgáltatások és minőségi garancia.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvennyolcadik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvennyolcadik kiállító leírása. Innovatív megoldások és modern technológiák.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Negyvenkilencedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('A negyvenkilencedik kiállító leírása. Megbízható partner és hosszú évek tapasztalata.', 'zeusweb'),
+                    ],
+                    [
+                        'title' => esc_html__('Ötvenedik Kiállító', 'zeusweb'),
+                        'text' => esc_html__('Az ötvenedik kiállító leírása. Kiváló minőség és versenyképes árak.', 'zeusweb'),
                     ],
                 ],
                 'title_field' => '{{{ title }}}',
