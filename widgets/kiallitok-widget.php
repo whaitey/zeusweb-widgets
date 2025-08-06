@@ -119,32 +119,14 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             ]
         );
         
-        $this->add_responsive_control(
-            'columns',
-            [
-                'label' => esc_html__('Oszlopok száma', 'zeusweb'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => '3',
-                'options' => [
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .kiallitok-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
-                ],
-            ]
-        );
+
         
         $this->add_control(
             'image_position',
             [
                 'label' => esc_html__('Kép pozíció', 'zeusweb'),
                 'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'top',
+                'default' => 'left',
                 'options' => [
                     'top' => esc_html__('Felül', 'zeusweb'),
                     'left' => esc_html__('Balra', 'zeusweb'),
