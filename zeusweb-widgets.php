@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
@@ -18,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Plugin Update Checker
 require_once __DIR__ . '/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5p6\Plugin\UpdateChecker;
+use YahnisElsts\PluginUpdateChecker\v5p6\PucFactory;
 
-$myUpdateChecker = UpdateChecker::buildUpdateChecker(
+$myUpdateChecker = PucFactory::buildUpdateChecker(
     'https://github.com/whaitey/zeusweb-widgets',
     __FILE__,
     'zeusweb-widgets'
