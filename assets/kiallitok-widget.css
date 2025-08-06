@@ -163,10 +163,12 @@
     gap: 30px !important;
     grid-template-columns: none !important;
     grid-template-rows: none !important;
+    width: 100% !important;
 }
 
+/* Base item styles - will be overridden by pagination */
 .kiallitok-item {
-    display: flex !important;
+    display: none !important;
     flex-direction: row !important;
     align-items: flex-start !important;
     gap: 20px !important;
@@ -283,11 +285,35 @@
     /* No rotation needed */
 }
 
-/* Hide items that are not on current page */
+/* Pagination visibility - only hide/show, don't change layout */
 .kiallitok-item {
     display: none !important;
 }
 
 .kiallitok-item.active {
     display: flex !important;
+}
+
+/* Ensure grid maintains column layout even with pagination */
+.kiallitok-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    width: 100% !important;
+}
+
+/* Force items to be full width and stacked */
+.kiallitok-item.active {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    width: 100% !important;
+    background: none !important;
+    border-radius: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    float: none !important;
+    clear: both !important;
 } 
