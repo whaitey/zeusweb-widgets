@@ -484,7 +484,7 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                             $item_class .= ' active';
                         }
                         ?>
-                        <div class="<?php echo esc_attr($item_class); ?>" data-page="<?php echo esc_attr($page_number); ?>" style="display: <?php echo $page_number === 1 ? 'flex' : 'none'; ?> !important; flex-direction: row !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; background: none !important; border-radius: 0 !important; padding: 20px !important; box-shadow: none !important; margin-bottom: 0 !important;">
+                        <div class="<?php echo esc_attr($item_class); ?>" data-page="<?php echo esc_attr($page_number); ?>" style="display: <?php echo $page_number === 1 ? 'flex' : 'none'; ?> !important; flex-direction: row !important; align-items: flex-start !important; gap: 20px !important; width: 100% !important; background: none !important; border-radius: 0 !important; padding: 0 !important; box-shadow: none !important; margin-bottom: 0 !important;">
                             <?php if (!empty($item['image']['url'])) : ?>
                                 <div class="kiallitok-image" style="flex-shrink: 0 !important; text-align: center !important; min-width: 200px !important; max-width: 200px !important; width: 200px !important;">
                                     <?php if (!empty($item['link']['url'])) : ?>
