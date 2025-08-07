@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.5.2
+ * Version: 1.5.3
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
@@ -20,12 +20,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 require_once __DIR__ . '/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5p6\PucFactory;
 
-// Plugin Update Checker - temporarily disabled due to GitHub API issues
-// $myUpdateChecker = PucFactory::buildUpdateChecker(
-//     'https://github.com/whaitey/zeusweb-widgets',
-//     __FILE__,
-//     'zeusweb-widgets'
-// );
+// Plugin Update Checker
+try {
+    $myUpdateChecker = PucFactory::buildUpdateChecker(
+        'https://github.com/whaitey/zeusweb-widgets',
+        __FILE__,
+        'zeusweb-widgets'
+    );
+    
+    // Add error handling for update checker
+    if ($myUpdateChecker) {
+        // Set a reasonable check period to avoid rate limiting
+        // Note: setCheckPeriod() might not be available for VCS checkers
+        error_log('ZeusWeb Widgets Update Checker initialized successfully');
+    }
+} catch (Exception $e) {
+    // Log error but don't break the plugin
+    error_log('ZeusWeb Widgets Update Checker Error: ' . $e->getMessage());
+}
 
 // Register the "ZeusWeb" category for Elementor widgets
 add_action('elementor/init', function() {
