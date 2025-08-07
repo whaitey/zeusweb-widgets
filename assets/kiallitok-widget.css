@@ -244,21 +244,23 @@
 
 .kiallitok-pagination-arrows {
     display: flex !important;
-    gap: 10px !important;
+    gap: 20px !important;
     align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
 }
 
 .kiallitok-pagination-arrow {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
+    width: 65px !important;
+    height: 65px !important;
+    min-width: 65px !important;
+    min-height: 65px !important;
+    max-width: 65px !important;
+    max-height: 65px !important;
     border: none !important;
     background: #00CB98 !important;
     color: #fff !important;
-    border-radius: 8px !important;
+    border-radius: 17px !important;
     cursor: pointer !important;
     font-size: 0 !important;
     text-align: center !important;
@@ -284,8 +286,8 @@
 }
 
 .kiallitok-pagination-arrow-img {
-    width: 11px !important;
-    height: 11px !important;
+    width: 25px !important;
+    height: 25px !important;
     display: block !important;
 }
 
