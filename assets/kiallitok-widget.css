@@ -221,23 +221,45 @@
     width: 15px !important;
     height: 15px !important;
     border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
     background: #ccc !important;
     border: none !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     padding: 0 !important;
+    border-radius: 50% !important;
 }
 
 .kiallitok-pagination-dot.active {
     background: #00CB98 !important;
     width: 23px !important;
     height: 23px !important;
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
     transform: none !important;
 }
 
 .kiallitok-pagination-dot:hover {
     background: #00CB98 !important;
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
     opacity: 0.8;
+}
+
+/* Additional specific overrides for Elementor compatibility */
+.elementor-widget-kiallitok_widget .kiallitok-pagination-dot {
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+}
+
+.elementor-widget-kiallitok_widget .kiallitok-pagination-dot.active {
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
 }
 
 .kiallitok-pagination-arrows {
