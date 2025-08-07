@@ -206,7 +206,7 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 20px !important;
+    gap: 40px !important;
     margin-top: 40px !important;
     width: 100% !important;
 }
@@ -251,16 +251,16 @@
 }
 
 .kiallitok-pagination-arrow {
-    width: 65px !important;
-    height: 65px !important;
-    min-width: 65px !important;
-    min-height: 65px !important;
-    max-width: 65px !important;
-    max-height: 65px !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
     border: none !important;
     background: #00CB98 !important;
     color: #fff !important;
-    border-radius: 17px !important;
+    border-radius: 12px !important;
     cursor: pointer !important;
     font-size: 0 !important;
     text-align: center !important;
@@ -286,9 +286,11 @@
 }
 
 .kiallitok-pagination-arrow-img {
-    width: 25px !important;
-    height: 25px !important;
-    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .kiallitok-pagination-arrow-left .kiallitok-pagination-arrow-img {
