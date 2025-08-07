@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class GYIK_Widget extends \Elementor\Widget_Base {
+class ZeusWeb_GYIK_Widget extends \Elementor\Widget_Base {
     
     public function get_name() {
         return 'gyik_widget';

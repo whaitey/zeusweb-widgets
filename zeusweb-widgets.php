@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.4.6
+ * Version: 1.4.7
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
@@ -48,7 +48,7 @@ add_action( 'elementor/widgets/register', 'zeusweb_register_slider_widget' );
 // Register the custom GYIK widget
 function zeusweb_register_gyik_widget( $widgets_manager ) {
     require_once( __DIR__ . '/widgets/gyik-widget.php' );
-    $widgets_manager->register( new \GYIK_Widget() );
+    $widgets_manager->register( new \ZeusWeb_GYIK_Widget() );
 }
 add_action( 'elementor/widgets/register', 'zeusweb_register_gyik_widget' );
 
