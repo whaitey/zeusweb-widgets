@@ -124,6 +124,46 @@ class ZeusWeb_Slider_Widget extends \Elementor\Widget_Base {
         );
 
         $this->end_controls_section();
+
+        // Accent Colors Section
+        $this->start_controls_section(
+            'accent_section',
+            [
+                'label' => __( 'Accent', 'zeusweb' ),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'accent_color',
+            [
+                'label' => __( 'Accent Color', 'zeusweb' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#00CB98',
+                'selectors' => [
+                    // Buttons background
+                    '{{WRAPPER}} .ces-slider-buttons button' => 'background-color: {{VALUE}} !important;',
+                    // Desktop separator line (right border of image)
+                    '{{WRAPPER}} .ces-slide-left::after' => 'background-color: {{VALUE}} !important;',
+                    // Mobile separator line
+                    '{{WRAPPER}} .ces-mobile-separator' => 'background-color: {{VALUE}} !important;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'accent_color_disabled',
+            [
+                'label' => __( 'Disabled Button Color', 'zeusweb' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#CCCCCC',
+                'selectors' => [
+                    '{{WRAPPER}} .ces-slider-buttons button:disabled' => 'background-color: {{VALUE}} !important; color: #666 !important;',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
     }
 
     protected function render() {

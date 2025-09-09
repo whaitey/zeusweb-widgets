@@ -55,7 +55,7 @@
     bottom: 0;
     right: 0;
     width: 1px;
-    background-color: #00CB98;
+    background-color: #00CB98; /* Overridden by Elementor accent */
     border-radius: 2px;
     z-index: 2;
 }
@@ -142,7 +142,7 @@
     max-width: 32px !important;
     max-height: 32px !important;
     border: none !important;
-    background: #00CB98 !important;
+    background: #00CB98 !important; /* Overridden by Elementor accent */
     color: #fff !important;
     border-radius: 8px !important;
     cursor: pointer;
@@ -222,7 +222,7 @@
         display: block;
         width: 100%;
         height: 2px;
-        background: #00CB98;
+        background: #00CB98; /* Overridden by Elementor accent */
         border-radius: 2px;
         margin: 2vw 0 3vw 0;
     }
