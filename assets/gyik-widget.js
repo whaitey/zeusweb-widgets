@@ -28,6 +28,22 @@
             this.setupResponsive();
             this.setupAccessibility();
         }
+
+        // Megőrzi az aktuális görgetési pozíciót a megadott művelet közben
+        preserveScroll(action) {
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+            try {
+                action();
+            } finally {
+                // Azonnali és késleltetett visszaállítás a tranzíciók miatt
+                requestAnimationFrame(() => {
+                    window.scrollTo(scrollX, scrollY);
+                    setTimeout(() => window.scrollTo(scrollX, scrollY), 0);
+                    setTimeout(() => window.scrollTo(scrollX, scrollY), 250);
+                });
+            }
+        }
         
         bindEvents() {
             const self = this;
@@ -84,15 +100,18 @@
             console.log('Question text:', question.find('.gyik-question-text').text());
             console.log('Answer text:', answer.find('.gyik-answer-content').text());
             
-            // Ha már aktív, akkor bezárjuk
-            if (question.hasClass('active')) {
-                this.closeAnswer(question, answer, toggle);
-            } else {
-                // Bezárjuk az összes másik választ EZEN A WIDGETEN
-                this.closeAllAnswersInThisWidget();
-                // Megnyitjuk a kiválasztottat
-                this.openAnswer(question, answer, toggle);
-            }
+            // Végrehajtás görgetés megőrzésével
+            this.preserveScroll(() => {
+                // Ha már aktív, akkor bezárjuk
+                if (question.hasClass('active')) {
+                    this.closeAnswer(question, answer, toggle);
+                } else {
+                    // Bezárjuk az összes másik választ EZEN A WIDGETEN
+                    this.closeAllAnswersInThisWidget();
+                    // Megnyitjuk a kiválasztottat
+                    this.openAnswer(question, answer, toggle);
+                }
+            });
         }
         
         openAnswer(question, answer, toggle) {

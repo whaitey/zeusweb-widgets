@@ -7,6 +7,14 @@
     padding: 0;
 }
 
+/* Prevent layout-induced scroll jumps when answers expand */
+.gyik-wrapper,
+.gyik-container,
+.gyik-item,
+.gyik-answer {
+	overflow-anchor: none;
+}
+
 .gyik-container {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
