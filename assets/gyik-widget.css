@@ -8,20 +8,25 @@
 }
 
 .gyik-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(240px, 1fr));
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 15px !important;
+    width: 100% !important;
     background-color: transparent;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Elementor-specific override to ensure two columns */
+.elementor-widget-zeusweb_gyik_widget .gyik-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 15px !important;
 }
 
 .gyik-item {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     border: 1px solid #ffffff;
     border-radius: 14px;
     background-color: rgba(255, 255, 255, 0.08);
@@ -29,12 +34,19 @@
     -webkit-backdrop-filter: blur(8px);
     overflow: hidden;
     transition: all 0.3s ease;
-    display: block;
-    width: 100%;
-    max-width: 480px;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
     position: relative;
-    margin: 0 auto;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure items fill columns in Elementor */
+.elementor-widget-zeusweb_gyik_widget .gyik-item {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
 }
 
 .gyik-item:hover {
@@ -237,18 +249,18 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .gyik-container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 0;
-        align-items: stretch;
-        justify-content: flex-start;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 0 !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
     }
     
     .gyik-item {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
     }
     
     .gyik-question-wrapper {

@@ -104,8 +104,8 @@
             // Toggle ikon változtatása
             toggle.text('−');
             
-            // Smooth scroll a válaszhoz
-            this.scrollToAnswer(answer);
+            // Remove auto-scroll to prevent jumping past the answer
+            // this.scrollToAnswer(answer);
             
             // Konténer méretének frissítése
             this.updateContainerHeight();
