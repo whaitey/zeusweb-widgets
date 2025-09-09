@@ -104,8 +104,8 @@
             // Toggle ikon változtatása
             toggle.text('−');
             
-            // Remove auto-scroll to prevent jumping past the answer
-            // this.scrollToAnswer(answer);
+            // Ne görgessünk automatikusan
+            // this.scrollToQuestion(question);
             
             // Konténer méretének frissítése
             this.updateContainerHeight();
@@ -239,6 +239,19 @@
             
             this.closeAllAnswersInThisWidget();
             this.openAnswer(question, answer, toggle);
+        }
+
+        scrollToQuestion(question) {
+            // Csak akkor görgetünk, ha nincs már a nézetben
+            const rect = question[0].getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const inView = rect.top >= 80 && rect.bottom <= (viewportHeight - 20);
+            if (inView) return;
+            
+            // Állítható fejlécoffset (pl. fix fejléc esetén)
+            const headerOffset = 100;
+            const targetTop = question.offset().top - headerOffset;
+            $('html, body').stop(true).animate({ scrollTop: targetTop }, 250);
         }
     }
     

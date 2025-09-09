@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ZeusWeb Widgets
  * Description: Custom Elementor widgets for ZeusWeb.
- * Version: 1.6.1
+ * Version: 1.6.2
  * Author: ZeusWeb
  * Plugin URI: https://github.com/whaitey/zeusweb-widgets
  * GitHub Plugin URI: https://github.com/whaitey/zeusweb-widgets
