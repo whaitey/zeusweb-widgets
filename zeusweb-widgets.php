@@ -27,11 +27,23 @@ try {
         __FILE__,
         'zeusweb-widgets'
     );
-    
-    // Add error handling for update checker
+
     if ($myUpdateChecker) {
-        // Set a reasonable check period to avoid rate limiting
-        // Note: setCheckPeriod() might not be available for VCS checkers
+        // Optional: Authenticate to avoid 403/rate limits if repo is private or heavily accessed.
+        if (defined('ZEUSWEB_GITHUB_TOKEN') && ZEUSWEB_GITHUB_TOKEN && method_exists($myUpdateChecker, 'setAuthentication')) {
+            $myUpdateChecker->setAuthentication(ZEUSWEB_GITHUB_TOKEN);
+        }
+        // Ensure we check the correct branch explicitly.
+        if (method_exists($myUpdateChecker, 'setBranch')) {
+            $myUpdateChecker->setBranch('master');
+        }
+        // Enable release assets if using GitHub Releases.
+        if (method_exists($myUpdateChecker, 'getVcsApi')) {
+            $api = $myUpdateChecker->getVcsApi();
+            if ($api && method_exists($api, 'enableReleaseAssets')) {
+                $api->enableReleaseAssets();
+            }
+        }
         error_log('ZeusWeb Widgets Update Checker initialized successfully');
     }
 } catch (Exception $e) {
