@@ -8,10 +8,10 @@
 }
 
 .gyik-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    justify-content: center;
+    gap: 10px;
     width: 100%;
     background-color: transparent;
     padding: 0;
@@ -21,20 +21,19 @@
 }
 
 .gyik-item {
-    flex: 0 0 calc(50% - 15px);
-    min-width: 0;
-    max-width: calc(50% - 15px);
-    border: 2px solid #ffffff;
-    border-radius: 47px;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
     background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     overflow: hidden;
     transition: all 0.3s ease;
     display: block;
-    width: calc(50% - 15px);
+    width: 100%;
+    max-width: 480px;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -62,9 +61,9 @@
 
 .gyik-question {
     flex: 1;
-    padding: 15px 20px;
+    padding: 10px 12px;
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #ffffff;
     background-color: transparent;
@@ -75,7 +74,7 @@
     justify-content: flex-start;
     transition: all 0.3s ease;
     text-align: left;
-    line-height: 1.4;
+    line-height: 1.35;
     width: 100%;
 }
 
@@ -123,7 +122,7 @@
 
 .gyik-button-wrapper {
     flex-shrink: 0;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     background-color: rgba(255, 255, 255, 0.08);
 }
@@ -168,7 +167,7 @@
 
 .gyik-answer.active {
     max-height: 1000px;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     box-sizing: border-box;
     min-width: 0;
@@ -238,16 +237,18 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .gyik-container {
+        display: flex;
         flex-direction: column;
         gap: 10px;
         padding: 0;
+        align-items: stretch;
+        justify-content: flex-start;
     }
     
     .gyik-item {
-        flex: 0 0 100%;
-        min-width: 100%;
-        max-width: 100%;
         width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
     
     .gyik-question-wrapper {
@@ -273,7 +274,7 @@
     }
     
     .gyik-answer.active {
-        padding: 15px;
+        padding: 12px;
     }
 }
 
