@@ -72,7 +72,8 @@
 .kiallitok-image img {
     width: 200px;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    background: transparent;
     border-radius: 6px;
     transition: transform 0.3s ease;
 }
@@ -180,7 +181,8 @@
 .kiallitok-image img {
     width: 200px !important;
     height: 200px !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    background: transparent !important;
     max-width: 200px !important;
     max-height: 200px !important;
     min-width: 200px !important;

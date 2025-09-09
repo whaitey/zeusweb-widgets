@@ -493,12 +493,12 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                                            <?php echo $item['link']['nofollow'] ? 'rel="nofollow"' : ''; ?>>
                                             <img src="<?php echo esc_url($item['image']['url']); ?>" 
                                                  alt="<?php echo esc_attr($item['title']); ?>"
-                                                 style="width: 200px !important; height: 200px !important; object-fit: cover !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
+                                                 style="width: 200px !important; height: 200px !important; object-fit: contain !important; background: transparent !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
                                         </a>
                                     <?php else : ?>
                                         <img src="<?php echo esc_url($item['image']['url']); ?>" 
                                              alt="<?php echo esc_attr($item['title']); ?>"
-                                             style="width: 200px !important; height: 200px !important; object-fit: cover !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
+                                             style="width: 200px !important; height: 200px !important; object-fit: contain !important; background: transparent !important; max-width: 200px !important; max-height: 200px !important; min-width: 200px !important; min-height: 200px !important;">
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>
