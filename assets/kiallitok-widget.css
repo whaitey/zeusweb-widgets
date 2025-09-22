@@ -101,6 +101,10 @@
     gap: 10px !important;
 }
 
+.kiallitok-title-row .kiallitok-map-link {
+    margin-left: auto !important;
+}
+
 .kiallitok-map-link {
     display: inline-flex !important;
     align-items: center !important;
