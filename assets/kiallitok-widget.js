@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
         const $prevBtn = $wrapper.find('.kiallitok-pagination-arrow-left');
         const $nextBtn = $wrapper.find('.kiallitok-pagination-arrow-right');
         const $mapLinks = $wrapper.find('.kiallitok-map-link');
+        const wrapperOffset = parseInt($wrapper.data('scroll-offset')) || 0;
         
         let currentPage = 1;
         const totalPages = $dots.length;
@@ -76,31 +77,12 @@ jQuery(document).ready(function($) {
             // Calculate scroll offset considering fixed admin bar/headers
             const adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
             let headerOffset = 0;
-            const $headers = $('header:visible, .elementor-location-header:visible, .site-header:visible, #header:visible, .elementor-sticky--active:visible, .elementor-sticky:visible');
-            $headers.each(function() {
-                const $h = $(this);
-                const position = $h.css('position');
-                const topVal = parseInt($h.css('top')) || 0;
-                if ((position === 'fixed' || position === 'sticky') && topVal <= 10) {
-                    headerOffset = Math.max(headerOffset, $h.outerHeight());
-                }
-            });
-            // Extra safety margin to ensure hotspot is visible
-            const extraMargin = 40;
-            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - headerOffset - extraMargin);
+            // Use simple, predictable offset: admin bar + configurable offset
+            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - wrapperOffset);
 
             // Smooth scroll
             $('html, body').animate({ scrollTop: offsetTop }, 500, function() {
-                // Post-scroll adjustment if still hidden by header
-                const adjustIfCovered = () => {
-                    const rect = $target.get(0).getBoundingClientRect();
-                    const coveredTop = adminBarHeight + headerOffset + 10;
-                    if (rect.top < coveredTop) {
-                        const delta = coveredTop - rect.top;
-                        $(window).scrollTop($(window).scrollTop() + delta);
-                    }
-                };
-                adjustIfCovered();
+                // No additional adjustments; rely on configured offset for stability
 
                 // Try to open Elementor hotspot widgets
                 const tryOpenHotspot = () => {

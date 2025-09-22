@@ -158,6 +158,19 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             ]
         );
         
+        $this->add_control(
+            'scroll_offset',
+            [
+                'label' => esc_html__('Görgetés offset (px)', 'zeusweb'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 100,
+                'min' => 0,
+                'max' => 300,
+                'step' => 1,
+                'description' => esc_html__('Fejléc/menü magasság kompenzálása görgetésnél.', 'zeusweb'),
+            ]
+        );
+        
         $this->end_controls_section();
         
         // Style Section: Container
@@ -526,6 +539,7 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
         $total_pages = ceil($total_items / $items_per_page);
         
         $this->add_render_attribute('wrapper', 'class', 'kiallitok-wrapper');
+        $this->add_render_attribute('wrapper', 'data-scroll-offset', isset($settings['scroll_offset']) ? intval($settings['scroll_offset']) : 0);
         $this->add_render_attribute('grid', 'class', 'kiallitok-grid');
         $this->add_render_attribute('grid', 'class', 'kiallitok-image-' . $settings['image_position']);
         $this->add_render_attribute('grid', 'style', 'display: flex !important; flex-direction: column !important; gap: 30px !important; width: 100% !important;');
