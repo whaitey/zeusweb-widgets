@@ -88,6 +88,17 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
             ]
         );
         
+        $repeater->add_control(
+            'hotspot_selector',
+            [
+                'label' => esc_html__('Hotspot szelektor', 'zeusweb'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'placeholder' => esc_html__('#hotspot-id vagy .hotspot-osztaly', 'zeusweb'),
+                'description' => esc_html__('CSS szelektor az Elementor hotspot elemhez. Kattintáskor erre görget és megnyitja.', 'zeusweb'),
+                'label_block' => true,
+            ]
+        );
+        
         $this->add_control(
             'exhibitors',
             [
@@ -505,17 +516,27 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                             
                             <div class="kiallitok-content">
                                 <?php if (!empty($item['title'])) : ?>
-                                    <h3 class="kiallitok-title">
-                                        <?php if (!empty($item['link']['url'])) : ?>
-                                            <a href="<?php echo esc_url($item['link']['url']); ?>"
-                                               <?php echo $item['link']['is_external'] ? 'target="_blank"' : ''; ?>
-                                               <?php echo $item['link']['nofollow'] ? 'rel="nofollow"' : ''; ?>>
+                                    <div class="kiallitok-title-row">
+                                        <h3 class="kiallitok-title">
+                                            <?php if (!empty($item['link']['url'])) : ?>
+                                                <a href="<?php echo esc_url($item['link']['url']); ?>"
+                                                   <?php echo $item['link']['is_external'] ? 'target="_blank"' : ''; ?>
+                                                   <?php echo $item['link']['nofollow'] ? 'rel="nofollow"' : ''; ?>>
+                                                    <?php echo esc_html($item['title']); ?>
+                                                </a>
+                                            <?php else : ?>
                                                 <?php echo esc_html($item['title']); ?>
+                                            <?php endif; ?>
+                                        </h3>
+                                        <?php if ( !empty($item['hotspot_selector']) ) : ?>
+                                            <a href="#" class="kiallitok-map-link" aria-label="Térkép megnyitása" data-hotspot-selector="<?php echo esc_attr($item['hotspot_selector']); ?>">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path d="M12 22s7-5.686 7-12a7 7 0 10-14 0c0 6.314 7 12 7 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
                                             </a>
-                                        <?php else : ?>
-                                            <?php echo esc_html($item['title']); ?>
                                         <?php endif; ?>
-                                    </h3>
+                                    </div>
                                 <?php endif; ?>
                                 
                                 <?php if (!empty($item['text'])) : ?>
@@ -587,17 +608,27 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
                                 
                                 <div class="kiallitok-content">
                                     <# if (item.title) { #>
-                                        <h3 class="kiallitok-title">
-                                            <# if (item.link.url) { #>
-                                                <a href="{{ item.link.url }}"
-                                                   <# if (item.link.is_external) { #>target="_blank"<# } #>
-                                                   <# if (item.link.nofollow) { #>rel="nofollow"<# } #>>
+                                        <div class="kiallitok-title-row">
+                                            <h3 class="kiallitok-title">
+                                                <# if (item.link.url) { #>
+                                                    <a href="{{ item.link.url }}"
+                                                       <# if (item.link.is_external) { #>target="_blank"<# } #>
+                                                       <# if (item.link.nofollow) { #>rel="nofollow"<# } #>>
+                                                        {{{ item.title }}}
+                                                    </a>
+                                                <# } else { #>
                                                     {{{ item.title }}}
+                                                <# } #>
+                                            </h3>
+                                            <# if (item.hotspot_selector) { #>
+                                                <a href="#" class="kiallitok-map-link" aria-label="Térkép megnyitása" data-hotspot-selector="{{ item.hotspot_selector }}">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path d="M12 22s7-5.686 7-12a7 7 0 10-14 0c0 6.314 7 12 7 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
                                                 </a>
-                                            <# } else { #>
-                                                {{{ item.title }}}
                                             <# } #>
-                                        </h3>
+                                        </div>
                                     <# } #>
                                     
                                     <# if (item.text) { #>
