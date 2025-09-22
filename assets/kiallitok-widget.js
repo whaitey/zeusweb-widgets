@@ -77,8 +77,9 @@ jQuery(document).ready(function($) {
             // Calculate scroll offset considering fixed admin bar/headers
             const adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
             let headerOffset = 0;
-            // Use simple, predictable offset: admin bar + configurable offset
-            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - wrapperOffset);
+            // Use simple, predictable offset: admin bar + configurable offset + small extra headroom
+            const extraMargin = 30;
+            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - wrapperOffset - extraMargin);
 
             // Smooth scroll
             $('html, body').animate({ scrollTop: offsetTop }, 500, function() {
