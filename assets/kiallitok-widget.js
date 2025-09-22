@@ -76,31 +76,67 @@ jQuery(document).ready(function($) {
             // Calculate scroll offset considering fixed admin bar/headers
             const adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
             let headerOffset = 0;
-            const $stickyHeader = $('.elementor-location-header:visible').first();
-            if ($stickyHeader.length && $stickyHeader.css('position') === 'fixed') {
-                headerOffset = $stickyHeader.outerHeight();
-            }
-            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - headerOffset - 20);
+            const $headers = $('header:visible, .elementor-location-header:visible, .site-header:visible, #header:visible, .elementor-sticky--active:visible, .elementor-sticky:visible');
+            $headers.each(function() {
+                const $h = $(this);
+                const position = $h.css('position');
+                const topVal = parseInt($h.css('top')) || 0;
+                if ((position === 'fixed' || position === 'sticky') && topVal <= 10) {
+                    headerOffset = Math.max(headerOffset, $h.outerHeight());
+                }
+            });
+            // Extra safety margin to ensure hotspot is visible
+            const extraMargin = 40;
+            const offsetTop = Math.max(0, $target.offset().top - adminBarHeight - headerOffset - extraMargin);
 
             // Smooth scroll
             $('html, body').animate({ scrollTop: offsetTop }, 500, function() {
+                // Post-scroll adjustment if still hidden by header
+                const adjustIfCovered = () => {
+                    const rect = $target.get(0).getBoundingClientRect();
+                    const coveredTop = adminBarHeight + headerOffset + 10;
+                    if (rect.top < coveredTop) {
+                        const delta = coveredTop - rect.top;
+                        $(window).scrollTop($(window).scrollTop() + delta);
+                    }
+                };
+                adjustIfCovered();
+
                 // Try to open Elementor hotspot widgets
-                try {
-                    // Case 1: Native click on hotspot marker or button inside target
-                    const $hotspotMarker = $target.find('.e-hotspot, .elementor-hotspot').first();
-                    if ($hotspotMarker.length) {
-                        $hotspotMarker.trigger('click');
-                    } else {
-                        // Case 2: If target itself is a hotspot
-                        if ($target.is('.e-hotspot, .elementor-hotspot')) {
+                const tryOpenHotspot = () => {
+                    try {
+                        // Prefer explicit clickable controls inside hotspot
+                        let $marker = $target.find('.e-hotspot__button, .elementor-hotspot__button, .e-hotspot__marker, .e-hotspot, .elementor-hotspot, button[role="button"], button').filter(':visible').first();
+
+                        if (!$marker.length && ($target.is('.e-hotspot, .elementor-hotspot, .e-hotspot__button, .elementor-hotspot__button, .e-hotspot__marker, button'))) {
+                            $marker = $target;
+                        }
+
+                        if ($marker && $marker.length) {
+                            // Temporary active styling
+                            $marker.addClass('kiallitok-hotspot-active');
+                            setTimeout(() => $marker.removeClass('kiallitok-hotspot-active'), 2500);
+
+                            // Trigger events to open
+                            $marker.trigger('mouseenter');
+                            $marker.trigger('click');
+                            // Dispatch native click for good measure
+                            if ($marker.get(0)) {
+                                $marker.get(0).dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                            }
+                        } else {
+                            // Fallback: style and click the target itself
+                            $target.addClass('kiallitok-hotspot-active');
+                            setTimeout(() => $target.removeClass('kiallitok-hotspot-active'), 2500);
                             $target.trigger('click');
                         }
+                    } catch (err) {
+                        // Fail silently
                     }
-                } catch (err) {
-                    // Fail silently
-                }
+                };
+                tryOpenHotspot();
 
-                // Highlight briefly
+                // Brief highlight pulse on container too
                 $target.addClass('kiallitok-hotspot-highlight');
                 setTimeout(() => $target.removeClass('kiallitok-hotspot-highlight'), 1200);
             });
