@@ -424,6 +424,53 @@ class Kiallitok_Widget extends \Elementor\Widget_Base {
         
         $this->end_controls_section();
         
+        // Style Section: Map Icon
+        $this->start_controls_section(
+            'section_style_map_icon',
+            [
+                'label' => esc_html__('Térkép ikon', 'zeusweb'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'map_icon_size',
+            [
+                'label' => esc_html__('Ikon méret (px)', 'zeusweb'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 40,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 16,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .kiallitok-map-link' => 'width: calc({{SIZE}}{{UNIT}} + 12px); height: calc({{SIZE}}{{UNIT}} + 12px); min-width: calc({{SIZE}}{{UNIT}} + 12px); min-height: calc({{SIZE}}{{UNIT}} + 12px);',
+                    '{{WRAPPER}} .kiallitok-map-link svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        
+        $this->add_control(
+            'map_icon_color',
+            [
+                'label' => esc_html__('Ikon szín', 'zeusweb'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#00CB98',
+                'selectors' => [
+                    '{{WRAPPER}} .kiallitok-map-link' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        
+        $this->end_controls_section();
+        
         // Style Section: Text
         $this->start_controls_section(
             'section_style_text',
